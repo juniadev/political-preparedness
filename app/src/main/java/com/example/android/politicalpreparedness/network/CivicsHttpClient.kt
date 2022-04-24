@@ -1,25 +1,21 @@
 package com.example.android.politicalpreparedness.network
 
+import com.example.android.politicalpreparedness.BuildConfig
 import okhttp3.OkHttpClient
-import java.io.FileInputStream
-import java.util.Properties
 
 class CivicsHttpClient: OkHttpClient() {
 
     companion object {
 
         fun getClient(): OkHttpClient {
-            val localProperties = Properties()
-            localProperties.load(FileInputStream("local.properties"))
-            val apiKey = localProperties.getProperty("civicsApiKey")
-
             return Builder()
                     .addInterceptor { chain ->
                         val original = chain.request()
+                        val civicsApiKey = BuildConfig.CIVICS_API_KEY
                         val url = original
                                 .url()
                                 .newBuilder()
-                                .addQueryParameter("key", apiKey)
+                                .addQueryParameter("key", civicsApiKey)
                                 .build()
                         val request = original
                                 .newBuilder()

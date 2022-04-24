@@ -3,6 +3,7 @@
     package="com.example.android.politicalpreparedness">
 
     <!-- >TODO: Add Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -18,5 +19,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

@@ -13,7 +13,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-private const val BASE_URL = "https://www.googleapis.com/civicinfo/v2/"
+private const val BASE_URL = "https://civicinfo.googleapis.com/civicinfo/v2/"
 
 private val moshi = Moshi.Builder()
         .add(DateAdapter())
@@ -34,13 +34,13 @@ private val retrofit = Retrofit.Builder()
 
 interface CivicsApiService {
     @GET("elections")
-    suspend fun getElections() : List<ElectionResponse>
+    suspend fun getElections() : ElectionResponse
 
     @GET("voterinfo")
     suspend fun getVoterInfo(@Query("address") address: String) : VoterInfoResponse
 
     @GET("representatives")
-    suspend fun getRepresentatives() : List<RepresentativeResponse>
+    suspend fun getRepresentatives() : RepresentativeResponse
 }
 
 object CivicsApi {

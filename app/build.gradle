@@ -5,6 +5,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'androidx.navigation.safeargs'
 
+Properties properties = new Properties()
+if (project.rootProject.file('local.properties').canRead()) {
+    properties.load(project.rootProject.file("local.properties").newDataInputStream())
+}
+
 android {
     compileSdkVersion 30
     buildFeatures {
@@ -18,6 +23,9 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            buildConfigField 'String', 'CIVICS_API_KEY', properties.getProperty('civicsApiKey')
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
