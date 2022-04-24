@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="election"
+            type="com.example.android.politicalpreparedness.network.models.Election" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/electionNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@{election.name}"
+            tools:text="VIP Test Election"/>
+
+        <TextView
+            android:id="@+id/electionDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:electionDate="@{election.electionDay}"
+            tools:text="Sun Jun 06 00:00:00 EDT 2021"
+            android:layout_marginBottom="@dimen/default_padding"/>
+    </LinearLayout>
+</layout>

@@ -73,6 +73,8 @@ dependencies {
     //Room
     implementation "androidx.room:room-runtime:$version_room"
     kapt "androidx.room:room-compiler:$version_room"
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$version_room"
 
     // Location
     implementation "com.google.android.gms:play-services-location:$version_play_services_location"

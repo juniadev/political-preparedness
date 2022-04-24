@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Political Preparedness</string>
-
-    <!-- TODO: Add necessary string values -->
-
+    <string name="ballot_image_description">A hand holding a ballot.</string>
+    <string name="upcoming_elections">Upcoming Elections</string>
+    <string name="find_my_representatives">Find my representatives</string>
+    <string name="saved_elections">Saved Elections</string>
+    <string name="representative_photo_description">Representative photo</string>
+    <string name="web_icon_description">Web icon</string>
+    <string name="facebook_icon_description">Facebook icon</string>
+    <string name="twitter_icon_description">Twitter icon</string>
 </resources>
