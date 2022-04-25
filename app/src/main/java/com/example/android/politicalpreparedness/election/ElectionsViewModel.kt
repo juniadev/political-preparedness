@@ -21,6 +21,10 @@ class ElectionsViewModel(
     val savedElections: LiveData<List<Election>>
         get() = _savedElections
 
+    private val _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean>
+        get() = _loading
+
     fun refreshData() {
         getUpcomingElections()
         getSavedElections()
@@ -28,8 +32,10 @@ class ElectionsViewModel(
 
     private fun getUpcomingElections() {
         viewModelScope.launch {
+            _loading.value = true
             val electionsResponse = api.getElections()
             _upcomingElections.value = electionsResponse.elections
+            _loading.value = false
         }
     }
 
@@ -38,8 +44,4 @@ class ElectionsViewModel(
             _savedElections.value = repository.getAllElections()
         }
     }
-
-
-    //TODO: Create functions to navigate to saved or upcoming election voter info
-
 }

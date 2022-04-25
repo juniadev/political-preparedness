@@ -1,11 +1,18 @@
 package com.example.android.politicalpreparedness.election
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.android.politicalpreparedness.database.ElectionDatabase
+import com.example.android.politicalpreparedness.database.ElectionRepository
+import com.example.android.politicalpreparedness.network.CivicsApi
 
-//TODO: Create Factory to generate VoterInfoViewModel with provided election datasource
-class VoterInfoViewModelFactory: ViewModelProvider.Factory {
+@Suppress("UNCHECKED_CAST")
+class VoterInfoViewModelFactory(private val context: Context): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        TODO("Not yet implemented")
+        return VoterInfoViewModel(
+            CivicsApi.retrofitService,
+            ElectionRepository(ElectionDatabase.getInstance(context).electionDao)
+        ) as T
     }
 }

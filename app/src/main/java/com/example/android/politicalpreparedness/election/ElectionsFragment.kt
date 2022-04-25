@@ -9,10 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.FragmentElectionBinding
 import com.example.android.politicalpreparedness.election.adapter.ElectionListAdapter
 import com.example.android.politicalpreparedness.election.adapter.ElectionListener
+import com.example.android.politicalpreparedness.network.models.Election
 
 class ElectionsFragment: Fragment() {
 
@@ -33,10 +35,10 @@ class ElectionsFragment: Fragment() {
 
         // Initiate recycler adapters
         val savedElectionsListAdapter = ElectionListAdapter(ElectionListener {
-            // TODO navigate to voter info
+            navigateToVoterInfo(it)
         })
         val upcomingElectionsListAdapter = ElectionListAdapter(ElectionListener {
-            // TODO navigate to voter info
+            navigateToVoterInfo(it)
         })
 
         binding.savedElectionsRecyclerView.adapter = savedElectionsListAdapter
@@ -50,6 +52,12 @@ class ElectionsFragment: Fragment() {
             upcomingElectionsListAdapter.submitList(it)
         }
         return binding.root
+    }
+
+    private fun navigateToVoterInfo(election: Election) {
+        findNavController().navigate(
+            ElectionsFragmentDirections.actionElectionsFragmentToVoterInfoFragment(election)
+        )
     }
 
     override fun onResume() {

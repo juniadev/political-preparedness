@@ -2,6 +2,8 @@
 <resources>
     <dimen name="default_padding">8dp</dimen>
     <dimen name="header_text_size">24sp</dimen>
+    <dimen name="default_text_size">16sp</dimen>
     <dimen name="default_margin_top">16dp</dimen>
     <dimen name="social_network_icon_size">40dp</dimen>
+    <dimen name="loading_image_size">300dp</dimen>
 </resources>

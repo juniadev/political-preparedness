@@ -20,4 +20,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="toolbarElectionTitle">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="electionDateText">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
 </resources>
