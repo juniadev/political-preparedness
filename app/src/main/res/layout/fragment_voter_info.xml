@@ -35,27 +35,46 @@
             app:layout_constraintTop_toBottomOf="@id/election_name"
             tools:text="12 November 2055" />
 
-        <!-- TODO: Add visual styling and content -->
         <TextView
             android:id="@+id/state_header"
+            style="@style/textHeader"
+            android:layout_marginTop="@dimen/default_margin_top"
+            android:text="@string/election_information"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/election_date"
             app:layout_constraintStart_toStartOf="@id/election_date" />
 
-        <!-- TODO: Add click binding to open web URL -->
-        <!-- TODO: Add visual styling and content -->
         <TextView
-            android:id="@+id/state_locations"
+            android:id="@+id/voter_info_error"
+            android:text="@string/voter_info_error"
+            style="@style/electionDateText"
+            android:layout_marginTop="@dimen/default_margin_top"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/state_header"
             app:layout_constraintStart_toStartOf="@id/election_date" />
 
-        <!-- TODO: Add click binding to open web URL -->
-        <!-- TODO: Add visual styling and content -->
+        <TextView
+            android:id="@+id/state_locations"
+            android:text="@string/voting_locations"
+            style="@style/electionDateText"
+            android:onClick="@{()->viewModel.openVotingLocationFinderUrl()}"
+            android:layout_marginTop="@dimen/default_margin_top"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/state_header"
+            app:layout_constraintStart_toStartOf="@id/election_date" />
+
         <TextView
             android:id="@+id/state_ballot"
+            android:text="@string/ballot_information"
+            style="@style/electionDateText"
+            android:onClick="@{()->viewModel.openElectionInfoUrl()}"
+            android:layout_marginTop="@dimen/default_margin_top"
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/state_locations"

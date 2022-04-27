@@ -9,4 +9,8 @@
     <string name="web_icon_description">Web icon</string>
     <string name="facebook_icon_description">Facebook icon</string>
     <string name="twitter_icon_description">Twitter icon</string>
+    <string name="election_information">Election Information</string>
+    <string name="voting_locations">Voting Locations</string>
+    <string name="ballot_information">Ballot Information</string>
+    <string name="voter_info_error">Voter info unavailable.</string>
 </resources>

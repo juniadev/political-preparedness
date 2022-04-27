@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.android.politicalpreparedness.R
+import com.example.android.politicalpreparedness.network.models.VoterInfoResponse
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
