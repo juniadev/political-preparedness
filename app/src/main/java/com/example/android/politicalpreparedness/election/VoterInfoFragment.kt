@@ -40,11 +40,18 @@ class VoterInfoFragment : Fragment() {
         })
         viewModel.voterInfo.observe(viewLifecycleOwner, Observer { voterInfo ->
             voterInfo.state?.let { states ->
-                if (states[0].electionAdministrationBody.votingLocationFinderUrl != null) {
+                val electionAdministrationBody = states[0].electionAdministrationBody
+                if (electionAdministrationBody.votingLocationFinderUrl != null) {
                     binding.stateLocations.visibility = View.VISIBLE
                 }
-                if (states[0].electionAdministrationBody.electionInfoUrl != null) {
+                if (electionAdministrationBody.electionInfoUrl != null) {
                     binding.stateBallot.visibility = View.VISIBLE
+                }
+                if (electionAdministrationBody.correspondenceAddress != null) {
+                    binding.addressGroup.visibility = View.VISIBLE
+                    // for some reason if I set the address in the layout xml, the text does not appear
+                    // in screen, so I'm setting it here instead
+                    binding.address.text = electionAdministrationBody.correspondenceAddress.toFormattedString()
                 }
             }
         })
@@ -54,9 +61,12 @@ class VoterInfoFragment : Fragment() {
             loadUrlIntent(url)
         })
 
-
-        //TODO: Handle save button UI state
-        //TODO: cont'd Handle save button clicks
+        // Handle save button UI state
+        viewModel.saveAction.observe(viewLifecycleOwner, Observer { action ->
+            binding.followUnfollowButton.text =
+                if (action == SaveAction.FOLLOW) getString(R.string.follow_election)
+                else getString(R.string.unfollow_election)
+        })
 
         return binding.root
     }

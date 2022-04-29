@@ -13,4 +13,7 @@
     <string name="voting_locations">Voting Locations</string>
     <string name="ballot_information">Ballot Information</string>
     <string name="voter_info_error">Voter info unavailable.</string>
+    <string name="follow_election">Follow election</string>
+    <string name="unfollow_election">Unfollow election</string>
+    <string name="correspondence_address">Correspondence address</string>
 </resources>
