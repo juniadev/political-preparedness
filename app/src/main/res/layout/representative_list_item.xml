@@ -10,7 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_padding">
 
@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:profileImage="@{representative.official.photoUrl}"
             tools:srcCompat="@drawable/ic_profile" />
 
         <TextView
@@ -29,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:textStyle="bold"
+            android:text="@{representative.office.name}"
             app:layout_constraintStart_toEndOf="@+id/representativePhotoImageView"
             app:layout_constraintTop_toTopOf="@+id/representativePhotoImageView"
             android:layout_marginStart="@dimen/default_padding"
@@ -38,6 +40,7 @@
             android:id="@+id/representativeNameTextView"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:text="@{representative.official.name}"
             app:layout_constraintStart_toStartOf="@+id/representativeOfficeTextView"
             app:layout_constraintTop_toBottomOf="@+id/representativeOfficeTextView"
             tools:text="Dianne Feinstein" />
@@ -46,6 +49,7 @@
             android:id="@+id/representativePartyTextView"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:text="@{representative.official.party}"
             app:layout_constraintStart_toStartOf="@+id/representativeNameTextView"
             app:layout_constraintTop_toBottomOf="@+id/representativeNameTextView"
             tools:text="Democratic Party" />

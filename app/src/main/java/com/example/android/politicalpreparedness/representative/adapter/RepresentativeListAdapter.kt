@@ -43,8 +43,11 @@ class RepresentativeViewHolder(val binding: RepresentativeListItemBinding): Recy
         binding.representative = item
         binding.representativePhotoImageView.setImageResource(R.drawable.ic_profile)
 
-        //TODO: Show social links ** Hint: Use provided helper methods
-        //TODO: Show www link ** Hint: Use provided helper methods
+        // Show social links ** Hint: Use provided helper methods
+        item.official.channels?.let { showSocialLinks(it) }
+
+        // Show www link ** Hint: Use provided helper methods
+        item.official.urls?.let { showWWWLinks(it) }
 
         binding.executePendingBindings()
     }
@@ -91,9 +94,4 @@ class RepresentativeViewHolder(val binding: RepresentativeListItemBinding): Recy
         val intent = Intent(ACTION_VIEW, uri)
         itemView.context.startActivity(intent)
     }
-
 }
-
-//TODO: Create RepresentativeDiffCallback
-
-//TODO: Create RepresentativeListener

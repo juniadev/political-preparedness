@@ -50,7 +50,7 @@
             android:id="@+id/voter_info_error"
             android:text="@string/voter_info_error"
             style="@style/electionDefaultText"
-            android:layout_marginTop="@dimen/default_margin_top"
+            android:layout_marginTop="@dimen/default_padding"
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             android:text="@string/voting_locations"
             style="@style/electionDefaultText"
             android:onClick="@{()->viewModel.openVotingLocationFinderUrl()}"
-            android:layout_marginTop="@dimen/default_margin_top"
+            android:layout_marginTop="@dimen/default_padding"
             android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
             android:text="@string/ballot_information"
             style="@style/electionDefaultText"
             android:onClick="@{()->viewModel.openElectionInfoUrl()}"
-            android:layout_marginTop="@dimen/default_margin_top"
+            android:layout_marginTop="@dimen/default_padding"
             android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,7 +86,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
-            tools:visibility="visible"
             app:constraint_referenced_ids="state_correspondence_header,address" />
 
         <TextView
@@ -102,11 +101,10 @@
         <TextView
             android:id="@+id/address"
             style="@style/electionDefaultText"
-            android:text="@{viewModel.voterInfo.state.get(0).electionAdministrationBody.correspondenceAddress.toFormattedString()}"
+            android:text="@{viewModel.voterInfo.state[0].electionAdministrationBody.correspondenceAddress.toFormattedString()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/default_margin_top"
-            tools:text="Address"
+            android:layout_marginTop="@dimen/default_padding"
             app:layout_constraintTop_toBottomOf="@id/state_correspondence_header"
             app:layout_constraintStart_toStartOf="@id/election_date" />
 
