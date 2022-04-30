@@ -121,18 +121,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/representative_title"/>
 
-        <TextView
-            android:id="@+id/list_placeholder"
-            style="@style/electionDefaultText"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:visibility="gone"
-            motion:visibilityMode="ignore"
-            android:text="@string/no_representatives_found"
-            app:layout_constraintTop_toBottomOf="@id/representative_title"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

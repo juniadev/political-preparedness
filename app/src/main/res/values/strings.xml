@@ -24,4 +24,5 @@
     <string name="use_my_location">Use my location</string>
     <string name="my_representatives">My Representatives</string>
     <string name="no_representatives_found">No representatives found.</string>
+    <string name="permission_denied_explanation">You need to grant location permission in order to search by location.</string>
 </resources>
